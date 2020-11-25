@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './Todo.min.css';
 
+import AddTodo from './component/Todo/AddTodo';
+import TodoElement from './component/Todo/TodoElement';
+
 class Todo extends Component {
 
   state = {
@@ -8,36 +11,35 @@ class Todo extends Component {
     todoList: []
   }
 
-  onChange(e){
-    this.setState({
-      value: e.target.value
-    })
+  onChange(key_value){
+    this.setState(key_value)
   }
 
-  add(){
+  add(e){
     this.setState({
-      todoList: this.state.todoList.concat(this.state.value),
+      todoList: this.state.todoList.concat(e),
       value: ''
     })
   }
 
   render(){
 
-    const todoListNode = this.state.todoList.map((todo, idx)=>{
-      return <li key={idx}>{todo}</li>
+    const todoListNode = this.state.todoList.map(element => {
+      return(
+        <TodoElement
+          key={element.id}
+          content={element.content} />
+      )
     })
 
     return(
       <div className="todo-list-wrapper">
         <h2>ToDo List</h2>
-        <input
-          type="text"
-          value={this.state.value}
+        <AddTodo
+          {...this.state}
           onChange={(e) => this.onChange(e)}
-          />
-        <button
-          onClick={() => this.add()}
-          >追加</button>
+          add={(e) => this.add(e)}
+        />
         <ul>
           {todoListNode}
         </ul>
