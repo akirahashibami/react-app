@@ -1,0 +1,30 @@
+.user_form{
+
+  input,
+  textarea{
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #8491a5;
+    width: 440px;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #bac6d3;
+    border-radius: 3px;
+    display: block;
+  }
+
+  input[type=submit]{
+    color: #fff;
+    width: 184px;
+    height: 48px;
+    font-size: 13px;
+    background-color: #30c8d6;
+    border: none;
+    margin-top: 32px;
+  }
+
+  .contact-message-error{
+    font-size: .8rem;
+    color: red;
+  }
+}
