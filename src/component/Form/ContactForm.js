@@ -64,7 +64,9 @@ class ContactForm extends Component {
     let contactForm;
     if(this.state.isSubmitted){
       contactForm = (
-        <div className='contact-submit-message'>
+        <div
+          className='contact-submit-message'
+          style={{height: "100px"}}>
           送信完了
         </div>
       );
