@@ -22,13 +22,27 @@ class Todo extends Component {
     })
   }
 
+  handleDelete(id){
+    let todoList = this.state.todoList.concat()
+    let index = 0
+    todoList.map((element, idx) => {
+      if (element.id === id) {
+        index = idx
+      }
+    });
+    todoList.splice(index, 1)
+    this.setState({todoList: todoList})
+  }
+
   render(){
 
     const todoListNode = this.state.todoList.map(element => {
       return(
         <TodoElement
           key={element.id}
-          content={element.content} />
+          element={element}
+          onDelete={(id)=> this.handleDelete(id)}
+        />
       )
     })
 
